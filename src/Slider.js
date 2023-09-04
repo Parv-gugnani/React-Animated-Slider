@@ -1,34 +1,42 @@
 import React, { useState } from "react";
 import "./Slider.css";
 
-const images = ["1.jpg", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"];
+const images = [
+  "images/1.png",
+  "images/2.png",
+  "images/3.png",
+  "images/4.png",
+  "images/5.png",
+  "images/6.png",
+  "images/7.png",
+];
 
 function Slider() {
-  const [currentIndex, setcurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
     const newIndex = (currentIndex + 1) % images.length;
-    setcurrentIndex(newIndex);
+    setCurrentIndex(newIndex);
   };
 
   const prevSlide = () => {
     const newIndex = (currentIndex - 1 + images.length) % images.length;
-    setcurrentIndex(newIndex);
+    setCurrentIndex(newIndex);
   };
-}
 
-return (
-  <div className="slider">
-    <button onClick={prevSlide} className="prev-button">
-      &#10094;
-    </button>
-    <button onClick={nextSlide} className="next-button">
-      &#10095;
-    </button>
-    <div className="slide">
-      <img src={images[currentIndex]} alt={`Slide ${currentIndex}`} />
+  return (
+    <div className="slider">
+      <button onClick={prevSlide} className="prev-button">
+        &#10094;
+      </button>
+      <button onClick={nextSlide} className="next-button">
+        &#10095;
+      </button>
+      <div className="slide">
+        <img src={images[currentIndex]} alt={`Slide ${currentIndex}`} />
+      </div>
     </div>
-  </div>
-);
+  );
+}
 
 export default Slider;
